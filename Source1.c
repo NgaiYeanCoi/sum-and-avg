@@ -1,43 +1,69 @@
-#include<stdio.h>
-void main()
+#include"stdio.h"
+int a;
+void abc();
+void run();
+int try();
+main()
 {
-	int a, b,i=0,c=0;
-	int sum;
-	int retry=0;
+	abc();
+}
+void abc()
+{
+	for (a=0; a < 2;)
+	{
+		printf("è«‹è¼¸å…¥éœ€è¦å¹¾å€‹æ•´æ•¸:\n");
+		scanf("%d", &a);
+		if (a < 2)
+		{
+			printf("è¼¸å…¥éŒ¯èª¤\n");
+		}
+		else
+		{
+			run();
+		}
+	}
+}
+void run()
+{
+	int sum = 0;
+	int b = 0;
+	int retry = 0;
+	int c = 0;
 	float avg;
+	for (int i = 0; i < a; i++)
+	{
+		c++;
+		printf("è«‹è¼¸å…¥ç¬¬%då€‹æ•´æ•¸\n", c);
+		scanf("%d", &b);
+		if (b == 0 || b < 0)
+		{
+			printf("è¼¸å…¥éŒ¯èª¤\n");
+			abc();
+		}
+		sum = b + sum;
+		avg = (float)sum / (float)a;
+	}
+	printf("%då€‹æ•¸ä¹‹å’Œç‚º:%d å¹³å‡å€¼ç‚º:%0.3f \n\n", c, sum, avg);
+	try();
+}
+int try()
+{
+	int retry = 0;
 	do
 	{
-	 a = 0; //ˆÌÐÐÖ®Ç°ÏÈÖØÖÃ
-	 sum = 0;
-	 avg = 0;
-	 b = 0;
-		do
+		printf("æ˜¯å¦è¦ç¹¼çºŒ? æŒ‰0ç¹¼çºŒ æŒ‰1ä¸­æ­¢\n");
+		scanf("%d", &retry);
+		if (retry == 0) 
 		{
-			printf("ÕˆÝ”ÈëÐèÒªŽ×‚€Õû”µ:\n");
-			scanf("%d", &a);
-			if (a < 2)
-			{
-				printf("Ý”ÈëåeÕ`\n");
-			}
-		} 
-			while (a < 2);//ÅÐ”àÝ”Èë²»ÄÜÐ¡ì¶2ÊÇ„tÑ­­h
-				int c = 0;
-				for(i=0;i<a;i++)
-					{
-						c++;
-						printf("ÕˆÝ”ÈëµÚ%d‚€Õû”µ\n",c);
-						scanf("%d",&b);
-						sum = b + sum;
-						avg =(float) sum / (float)a;
-					}
-					printf("%d‚€”µÖ®ºÍžé:%d Æ½¾ùÖµžé:%0.3f \n\n", c,sum, avg);
-					do
-					{ 
-						printf("ÊÇ·ñÒªÀ^Àm? °´0À^Àm °´1ÖÐÖ¹\n");
-						scanf("%d", &retry);
-						if (retry != 0 && retry != 1)
-						printf("Ý”ÈëåeÕ`ÕˆÖØÐÂÝ”Èë\n");}
-						while (retry != 0 && retry != 1);
-	} 
-	while (retry==0);
+			abc();
+		}
+		else if(retry==1)
+		{
+			return 0;
+		}
+		else 
+		{
+			printf("è¼¸å…¥éŒ¯èª¤è«‹é‡æ–°è¼¸å…¥\n");
+		}
+	} while (retry != 0 && retry != 1);
 }
